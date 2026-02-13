@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register Form</title>
+        <link rel="stylesheet" href="registercss.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <h2>Register Form</h2>
+            <form id="registerform">
+                <label>Username:</label>
+                <input type="text" id="username" placeholder="Enter Username" required><br><br>
+                
+                <label>Email:</label>
+                <input type="email" id="email" placeholder="Enter Email" required><br><br>
+                
+                <label>Password:</label>
+                <input type="password" id="password" placeholder="Enter Password" required><br><br>
+                
+                <label>Confirm Password:</label>
+                <input type="password" id="confirmpassword" placeholder="Confirm Password" required><br><br>
+
+                <button type="submit">Register</button>
+                <p id="errorMsg"></p>
+            </form>
+        </div>
+
+        <script src="register_script.js"></script>

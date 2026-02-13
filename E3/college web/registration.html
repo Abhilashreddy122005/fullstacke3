@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - Veltech University</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../image.png" alt="Veltech University Logo">
+                <div class="brand-text">
+                    <h1>Veltech University</h1>
+                    <p>Rangarajan Dr. Sagunthala R&D Institute</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#programs">Programs</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#admission">Admission</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="registration-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 10px;">Student Registration Form</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 1.05rem;">
+                    Join Veltech University - Your Gateway to Excellence
+                </p>
+
+                <div class="form-container">
+                    <form id="registrationForm" onsubmit="handleSubmit(event)">
+                        <fieldset style="border: 2px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                            <legend style="color: var(--primary-color); font-weight: 600; padding: 0 10px;">Personal Information</legend>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="Enter first name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required placeholder="Enter last name">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="Enter email address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="Enter phone number">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth *</label>
+                                    <input type="date" id="dob" name="dob" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender *</label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">-- Select Gender --</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group full">
+                                    <label for="address">Address *</label>
+                                    <input type="text" id="address" name="address" required placeholder="Enter complete address">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required placeholder="Enter city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State/Province *</label>
+                                    <input type="text" id="state" name="state" required placeholder="Enter state">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="zipcode">Zip/Postal Code *</label>
+                                    <input type="text" id="zipcode" name="zipcode" required placeholder="Enter zip code">
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <input type="text" id="country" name="country" required placeholder="Enter country">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset style="border: 2px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                            <legend style="color: var(--primary-color); font-weight: 600; padding: 0 10px;">Academic Information</legend>
+                            
+                            <div class="form-group full">
+                                <label for="program">Program of Interest *</label>
+                                <select id="program" name="program" required>
+                                    <option value="">-- Select Program --</option>
+                                    <option value="bachelor">Bachelor's Degree</option>
+                                    <option value="master">Master's Degree</option>
+                                    <option value="phd">PhD/Research</option>
+                                    <option value="executive">Executive Program</option>
+                                    <option value="online">Online Course</option>
+                                    <option value="bootcamp">Specialized Bootcamp</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="specialization">Specialization/Discipline *</label>
+                                <select id="specialization" name="specialization" required>
+                                    <option value="">-- Select Specialization --</option>
+                                    <option value="cse">Computer Science & Engineering</option>
+                                    <option value="ece">Electronics & Communication</option>
+                                    <option value="mechanical">Mechanical Engineering</option>
+                                    <option value="civil">Civil Engineering</option>
+                                    <option value="electrical">Electrical Engineering</option>
+                                    <option value="biomedical">Biomedical Engineering</option>
+                                    <option value="ai">Artificial Intelligence</option>
+                                    <option value="data-science">Data Science</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ssc10">10th Grade Score (%) *</label>
+                                    <input type="number" id="ssc10" name="ssc10" step="0.01" min="0" max="100" required placeholder="Enter percentage">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ssc12">12th Grade Score (%) *</label>
+                                    <input type="number" id="ssc12" name="ssc12" step="0.01" min="0" max="100" required placeholder="Enter percentage">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ugpa">Undergraduate CGPA (if applicable)</label>
+                                    <input type="number" id="ugpa" name="ugpa" step="0.01" min="0" max="10" placeholder="Enter CGPA">
+                                </div>
+                                <div class="form-group">
+                                    <label for="entrance">Entrance Exam Score</label>
+                                    <input type="text" id="entrance" name="entrance" placeholder="e.g., JEE: 580/700">
+                                </div>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="stream">Educational Background *</label>
+                                <select id="stream" name="stream" required>
+                                    <option value="">-- Select Stream --</option>
+                                    <option value="pcm">Physics, Chemistry, Mathematics</option>
+                                    <option value="pcb">Physics, Chemistry, Biology</option>
+                                    <option value="commerce">Commerce</option>
+                                    <option value="arts">Arts</option>
+                                    <option value="diploma">Diploma</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset style="border: 2px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                            <legend style="color: var(--primary-color); font-weight: 600; padding: 0 10px;">Contact Preferences</legend>
+                            
+                            <div class="form-group full">
+                                <label>Preferred Contact Method *</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="contact_email" name="contactMethod" value="email" required>
+                                        <label for="contact_email" style="margin-bottom: 0;">Email</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="contact_phone" name="contactMethod" value="phone">
+                                        <label for="contact_phone" style="margin-bottom: 0;">Phone</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="contact_sms" name="contactMethod" value="sms">
+                                        <label for="contact_sms" style="margin-bottom: 0;">SMS</label>
+                                    </div>
+                                </div>
+                            </div>
+  <div class="form-group full">
+                                <label>Interested Areas (Select all that apply) *</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="area_academics" name="interests" value="academics" required>
+                                        <label for="area_academics" style="margin-bottom: 0;">Quality Academics</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="area_placement" name="interests" value="placement">
+                                        <label for="area_placement" style="margin-bottom: 0;">Placement Opportunities</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="area_research" name="interests" value="research">
+                                        <label for="area_research" style="margin-bottom: 0;">Research Facilities</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="area_infrastructure" name="interests" value="infrastructure">
+                                        <label for="area_infrastructure" style="margin-bottom: 0;">Campus Infrastructure</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="area_sports" name="interests" value="sports">
+                                        <label for="area_sports" style="margin-bottom: 0;">Sports & Extracurriculars</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="referral">How did you hear about us?</label>
+                                <select id="referral" name="referral">
+                                    <option value="">-- Select Option --</option>
+                                    <option value="website">Website</option>
+                                    <option value="social_media">Social Media</option>
+                                    <option value="friend">Friend/Relative</option>
+                                    <option value="school">School</option>
+                                    <option value="advertisement">Advertisement</option>
+                                    <option value="news">News/Media</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset style="border: 2px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                            <legend style="color: var(--primary-color); font-weight: 600; padding: 0 10px;">Additional Information</legend>
+                            
+                            <div class="form-group full">
+                                <label for="awards">Awards/Achievements/Certifications</label>
+                                <textarea id="awards" name="awards" placeholder="Describe any awards, achievements, or relevant certifications..."></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="experience">Work/Internship Experience</label>
+                                <textarea id="experience" name="experience" placeholder="Mention any relevant work or internship experience..."></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="message">Additional Comments/Questions</label>
+                                <textarea id="message" name="message" placeholder="Any additional information you would like to share..."></textarea>
+                            </div>
+
+                            <div class="form-group full">
+                                <label style="display: flex; align-items: flex-start; gap: 10px; font-weight: 400;">
+                                    <input type="checkbox" id="terms" name="terms" required style="margin-top: 4px;">
+                                    <span>I agree to the <strong>Terms of Service</strong> and <strong>Privacy Policy</strong> of Veltech University. I also consent to receive communications about my application status and university updates. *</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group full">
+                                <label style="display: flex; align-items: flex-start; gap: 10px; font-weight: 400;">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span>Yes, I would like to receive newsletters and updates about university events and programs.</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Submit Registration</button>
+                            <button type="reset" class="btn-reset">Clear Form</button>
+                        </div>
+
+                        <p style="text-align: center; margin-top: 25px; color: #999; font-size: 0.9rem;">
+                            Fields marked with <span style="color: red;">*</span> are mandatory
+                        </p>
+                    </form>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="index.html" class="btn btn-secondary" style="padding: 10px 25px;">← Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Veltech</h4>
+                    <p>A leading institution of higher learning committed to academic excellence, research, and holistic development of students.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#programs">Programs</a></li>
+                        <li><a href="index.html#admission">Admission</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Academics</h4>
+                    <ul>
+                        <li><a href="index.html#programs">Engineering</a></li>
+                        <li><a href="index.html#programs">Technology</a></li>
+                        <li><a href="index.html#programs">Research</a></li>
+                        <li><a href="index.html#programs">Online Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Veltech University. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(document.getElementById('registrationForm'));
+            const data = Object.fromEntries(formData);
+            
+            if (validateForm(data)) {
+                alert('Registration submitted successfully!\n\nThank you for your interest in Veltech University.\n\nWe will review your application and contact you soon.');
+                
+                document.getElementById('registrationForm').reset();
+                
+                console.log('Registration Data:', data);
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        }
+
+        function validateForm(data) {
+            const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+            if (checkboxes.length === 0) {
+                alert('Please select at least one interested area.');
+                return false;
+            }
+
+            if (parseFloat(data.ssc10) > 100 || parseFloat(data.ssc12) > 100) {
+                alert('Academic scores cannot exceed 100%.');
+                return false;
+            }
+
+            if (parseFloat(data.ssc10) < 0 || parseFloat(data.ssc12) < 0) {
+                alert('Academic scores cannot be negative.');
+                return false;
+            }
+
+            const dob = new Date(data.dob);
+            const today = new Date();
+            const age = today.getFullYear() - dob.getFullYear();
+            if (age < 16) {
+                alert('You must be at least 16 years old to apply.');
+                return false;
+            }
+
+            return true;
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email && !emailPattern.test(email)) {
+                this.style.borderColor = '#d9534f';
+                this.style.boxShadow = '0 0 0 3px rgba(217, 83, 79, 0.1)';
+            } else {
+                this.style.borderColor = '#ddd';
+                this.style.boxShadow = 'none';
+            }
+        });
+
+        document.getElementById('phone').addEventListener('blur', function() {
+            const phone = this.value;
+            const phonePattern = /^\d{10}$/;
+            if (phone && !phonePattern.test(phone.replace(/\D/g, ''))) {
+                this.style.borderColor = '#d9534f';
+                this.style.boxShadow = '0 0 0 3px rgba(217, 83, 79, 0.1)';
+            } else {
+                this.style.borderColor = '#ddd';
+                this.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
