@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InvSys — Inventory Control System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 8px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--text-sub);
+      font-size: 13px;
+      padding: 4px 0;
+    }
+    .checkbox-item:hover { color: var(--text); }
+    .checkbox-item input {
+      width: 16px; height: 16px;
+      cursor: pointer; accent-color: var(--primary);
+    }
+    .badge-active-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      margin-left: 6px;
+      box-shadow: 0 0 8px rgba(16,185,129,0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Confirm Modal -->
+  <div id="confirmModal" class="modal-overlay hidden">
+    <div class="confirm-box">
+      <div class="confirm-icon">⚠️</div>
+      <h3 id="confirmTitle">Confirm Action</h3>
+      <p id="confirmMsg">Are you sure?</p>
+      <div class="confirm-actions">
+        <button id="confirmCancel" class="btn btn-secondary">Cancel</button>
+        <button id="confirmOk" class="btn btn-danger">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-wrap">
+        <span class="logo-icon">📦</span>
+        <div>
+          <div class="logo-title">InvSys</div>
+          <div class="logo-sub">Inventory Control</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active" id="nav-dashboard">
+        <span class="nav-icon">🏠</span> <span>Dashboard</span>
+      </a>
+      <a href="#items" class="nav-item" id="nav-items">
+        <span class="nav-icon">📋</span> <span>Products</span>
+      </a>
+      <a href="#stock" class="nav-item" id="nav-stock">
+        <span class="nav-icon">📦</span> <span>Stock</span>
+      </a>
+      <a href="#requests" class="nav-item" id="nav-requests">
+        <span class="nav-icon">📥</span> <span>Requests</span>
+      </a>
+      <a href="#stats" class="nav-item" id="nav-stats">
+        <span class="nav-icon">📊</span> <span>Analytics & Reports</span>
+      </a>
+      <a href="#locations" class="nav-item hidden" id="nav-locations">
+        <span class="nav-icon">🌍</span> <span>Facilities</span>
+      </a>
+      <a href="#users" class="nav-item hidden" id="nav-users">
+        <span class="nav-icon">👥</span> <span>Users</span>
+      </a>
+      <a href="#audit" class="nav-item hidden" id="nav-audit">
+        <span class="nav-icon">📜</span> <span>Audit Log</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar" id="userAvatar">A</div>
+        <div class="user-details">
+          <div class="user-name" id="usernameDisplay">Loading...</div>
+          <div class="user-role-badge" id="roleBadge">—</div>
+        </div>
+      </div>
+      <button id="logoutBtn" class="btn-logout">🚪 Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Bar -->
+    <div class="topbar">
+      <button class="btn-hamburger" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+      <div class="topbar-right">
+        <div class="topbar-clock" id="topbarClock"></div>
+        <div class="low-stock-alert hidden" id="globalAlert">
+          <span class="pulse-dot"></span> <span id="globalAlertText"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== DASHBOARD ==================== -->
+    <section id="dashboard" class="page active">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p class="page-sub">Real-time inventory overview across all warehouses</p>
+      </div>
+
+      <div class="kpi-grid" id="kpiGrid">
+        <div class="kpi-card kpi-blue">
+          <div class="kpi-icon">📋</div>
+          <div class="kpi-value" id="kpi-items">—</div>
+          <div class="kpi-label">Total Products</div>
+        </div>
+        <div class="kpi-card kpi-purple">
+          <div class="kpi-icon">📦</div>
+          <div class="kpi-value" id="kpi-units">—</div>
+          <div class="kpi-label">Total Units in Stock</div>
+        </div>
+        <div class="kpi-card kpi-green">
+          <div class="kpi-icon">₹</div>
+          <div class="kpi-value" id="kpi-value">—</div>
+          <div class="kpi-label">Total Inventory Value</div>
+        </div>
+        <div class="kpi-card kpi-orange">
+          <div class="kpi-icon">⚠️</div>
+          <div class="kpi-value" id="kpi-low">—</div>
+          <div class="kpi-label">Low Stock Items</div>
+        </div>
+        <div class="kpi-card kpi-red">
+          <div class="kpi-icon">❌</div>
+          <div class="kpi-value" id="kpi-out">—</div>
+          <div class="kpi-label">Out of Stock</div>
+        </div>
+        <div class="kpi-card kpi-blue">
+          <div class="kpi-icon">👥</div>
+          <div class="kpi-value" id="kpi-active-users">0</div>
+          <div class="kpi-label">Active Users Today</div>
+        </div>
+        <div class="kpi-card kpi-teal">
+          <div class="kpi-icon">🏢</div>
+          <div class="kpi-value" id="kpi-warehouses">0</div>
+          <div class="kpi-label">Total Facilities</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="glass-card">
+          <h3>📦 Top Products by Value</h3>
+          <table class="mini-table" id="dashTopItems">
+            <thead><tr><th>Product</th><th>Category</th><th>Units</th><th>Value (₹)</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="glass-card">
+          <h3>🏬 Top Warehouses by Stock</h3>
+          <table class="mini-table" id="dashTopWarehouses">
+            <thead><tr><th>Warehouse</th><th>State</th><th>Units</th><th>Item Types</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="glass-card">
+          <h3>🕐 Recent Activity</h3>
+          <div id="dashActivity" class="activity-feed"></div>
+        </div>
+        <div class="glass-card">
+          <h3>🏷️ Category Breakdown</h3>
+          <canvas id="categoryChart" height="240"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRODUCTS ==================== -->
+    <section id="items" class="page hidden">
+      <div class="page-header">
+        <h1>Products</h1>
+        <p class="page-sub">Manage your product catalog</p>
+      </div>
+
+      <div class="glass-card mb-4">
+        <h3 id="itemFormTitle">➕ Add New Product</h3>
+        <form id="itemForm">
+          <input type="hidden" id="itemId">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Product Name *</label>
+              <input type="text" id="name" placeholder="e.g. Samsung Galaxy A54" required>
+            </div>
+            <div class="form-group">
+              <label>SKU Code *</label>
+              <input type="text" id="sku" placeholder="e.g. PHONE-SAM-A54-128" required>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <input type="text" id="category" placeholder="e.g. Electronics" list="categoryList">
+              <datalist id="categoryList"></datalist>
+            </div>
+            <div class="form-group">
+              <label>Brand</label>
+              <input type="text" id="brand" placeholder="e.g. Samsung">
+            </div>
+            <div class="form-group">
+              <label>Unit Price (₹)</label>
+              <input type="number" id="unit_price" placeholder="0.00" min="0" step="0.01" value="0">
+            </div>
+            <div class="form-group">
+              <label>Reorder Level</label>
+              <input type="number" id="reorder_level" placeholder="10" min="0" value="10">
+            </div>
+            <div class="form-group">
+              <label>Supplier</label>
+              <input type="text" id="supplier" placeholder="e.g. Hindustan Unilever Ltd">
+            </div>
+            <div class="form-group">
+              <label>Unit of Measure</label>
+              <input type="text" id="unit_of_measure" placeholder="e.g. Units, Boxes, Cartons">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="description" rows="2" placeholder="Product details, specs, notes..."></textarea>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn btn-primary">💾 Save Product</button>
+            <button type="button" id="resetBtn" class="btn btn-secondary">↺ Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="glass-card">
+        <div class="table-controls">
+          <input type="text" id="searchBox" placeholder="🔍 Search by name or SKU..." class="search-input">
+          <select id="categoryFilter" class="filter-select">
+            <option value="">All Categories</option>
+          </select>
+          <button id="lowStockFilterBtn" class="btn btn-outline">⚠️ Low Stock Only</button>
+        </div>
+        <div class="table-wrapper">
+          <table id="itemsTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Unit Price</th>
+                <th>Total Stock</th>
+                <th>Total Value</th>
+                <th>Reorder At</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">📦</div>
+            <p>No products found. Add your first product above!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Details Modal -->
+      <div id="productModal" class="modal-overlay hidden">
+        <div class="modal-box large">
+          <div class="modal-head">
+            <h2 id="productTitle">Product Details</h2>
+            <button class="btn-close" onclick="closeProductModal()">✕</button>
+          </div>
+          <div class="modal-body-scroll">
+            <div class="loc-detail-grid" style="margin-bottom: 20px;">
+              <div class="loc-info-card">
+                <h4>📋 Product Info</h4>
+                <table class="detail-table">
+                  <tr><td>SKU</td><td id="productSku"></td></tr>
+                  <tr><td>Category</td><td id="productCategory"></td></tr>
+                  <tr><td>Brand</td><td id="productBrand"></td></tr>
+                  <tr><td>Unit Price</td><td id="productPrice"></td></tr>
+                  <tr><td>Total Stock</td><td id="productTotalStock"></td></tr>
+                  <tr><td>Reorder Level</td><td id="productReorder"></td></tr>
+                </table>
+              </div>
+            </div>
+            <h4>🏬 Location-wise Stock Distribution</h4>
+            <div class="table-wrapper">
+              <table id="productStockTable">
+                <thead><tr><th>Warehouse</th><th>State</th><th>Country</th><th>Quantity</th><th>Status</th></tr></thead>
+                <tbody id="productStockList"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STOCK ==================== -->
+    <section id="stock" class="page hidden">
+      <div class="page-header">
+        <h1>Stock Management</h1>
+        <p class="page-sub">View and update stock levels across all warehouses</p>
+      </div>
+
+      <div class="glass-card">
+        <div class="table-controls">
+          <input type="text" id="stockSearch" placeholder="🔍 Search item or SKU..." class="search-input">
+          <select id="stockWarehouse" class="filter-select">
+            <option value="">All Warehouses</option>
+          </select>
+          <select id="stockManager" class="filter-select" style="display:none;">
+            <option value="">All Managers</option>
+          </select>
+          <select id="stockStatus" class="filter-select">
+            <option value="">All Status</option>
+            <option value="low">⚠️ Low Stock</option>
+            <option value="out">❌ Out of Stock</option>
+            <option value="ok">✅ In Stock</option>
+          </select>
+        </div>
+
+        <div class="stock-summary-bar" id="stockSummaryBar"></div>
+
+        <div class="table-wrapper">
+          <table id="stockTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Warehouse</th>
+                <th>Manager</th>
+                <th>Location</th>
+                <th>Qty (Current)</th>
+                <th>Reorder Level</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="stockEmpty" class="empty-state hidden">
+            <div class="empty-icon">🏭</div>
+            <p>No stock records. Add inventory items and assign them to warehouses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REQUESTS ==================== -->
+    <section id="requests" class="view-section hidden">
+      <header class="view-header">
+        <div>
+          <h1>Stock Requests</h1>
+          <p>Request stock or manage incoming requests</p>
+        </div>
+        <button class="btn btn-primary" onclick="openRequestModal()">➕ New Request</button>
+      </header>
+
+      <div class="glass-card">
+        <div class="report-tabs">
+          <button class="report-tab active" data-req="incoming" onclick="setReqTab('incoming')">📥 Incoming</button>
+          <button class="report-tab" data-req="outgoing" onclick="setReqTab('outgoing')">📤 Outgoing</button>
+        </div>
+        
+        <div class="table-wrapper">
+          <table id="requestsTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Product</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Qty</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="requestsEmpty" class="empty-state hidden">
+            <div class="empty-icon">📨</div>
+            <p>No requests found in this category.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- New Request Modal -->
+      <div id="newReqModal" class="modal-overlay hidden">
+        <div class="modal-box">
+          <div class="modal-head">
+            <h2>➕ Request Stock</h2>
+            <button class="btn-close" onclick="closeReqModal('newReqModal')">✕</button>
+          </div>
+          <div class="modal-body">
+            <form id="newReqForm">
+              <div class="form-group">
+                <label>Product *</label>
+                <select id="reqProduct" required></select>
+              </div>
+              <div class="form-group" style="display:flex; gap:10px;">
+                <div style="flex:1;">
+                  <label>Request From (Source) *</label>
+                  <select id="reqFrom" required></select>
+                </div>
+                <div style="flex:1;">
+                  <label>Deliver To (Destination) *</label>
+                  <select id="reqTo" required></select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Quantity *</label>
+                <input type="number" id="reqQty" min="1" required>
+              </div>
+              <div class="button-group" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+                <button type="button" class="btn btn-outline" onclick="closeReqModal('newReqModal')">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Modal -->
+      <div id="actReqModal" class="modal-overlay hidden">
+        <div class="modal-box">
+          <div class="modal-head">
+            <h2 id="actReqTitle">Update Request</h2>
+            <button class="btn-close" onclick="closeReqModal('actReqModal')">✕</button>
+          </div>
+          <div class="modal-body">
+            <form id="actReqForm">
+              <input type="hidden" id="actReqId">
+              <input type="hidden" id="actReqStatus">
+              
+              <div id="actReasonGroup" class="form-group hidden">
+                <label>Reason for Rejection *</label>
+                <input type="text" id="actReason">
+              </div>
+              
+              <div id="actShipGroup" class="hidden">
+                <div class="form-group">
+                  <label>Shipping Method *</label>
+                  <select id="actShipType">
+                    <option value="own">Own Fleet</option>
+                    <option value="third_party">Third Party Courier</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Driver / Courier Details</label>
+                  <input type="text" id="actDriver" placeholder="e.g. FedEx / John Doe">
+                </div>
+                <div class="form-group">
+                  <label>Tracking Number</label>
+                  <input type="text" id="actTracking">
+                </div>
+              </div>
+
+              <div class="button-group" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" id="actSubmitBtn">Confirm</button>
+                <button type="button" class="btn btn-outline" onclick="closeReqModal('actReqModal')">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TRANSFER (REMOVED: Handled by Requests) ==================== -->
+
+    <!-- ==================== ANALYTICS ==================== -->
+    <section id="stats" class="page hidden">
+      <div class="page-header">
+        <h1>Analytics</h1>
+        <p class="page-sub">Geographic and category-level stock analysis</p>
+      </div>
+
+      <div class="glass-card">
+        <div class="chart-controls">
+          <label>View Mode:</label>
+          <select id="statsMode" class="filter-select">
+            <option value="global">Global Overview</option>
+            <option value="country">By Country</option>
+            <option value="state">By State/Region</option>
+          </select>
+          <select id="countrySelect" class="filter-select" style="display:none;">
+            <option value="">All Countries</option>
+          </select>
+          <select id="stateSelect" class="filter-select" style="display:none;">
+            <option value="">All States</option>
+          </select>
+        </div>
+        <canvas id="statsChart" height="120"></canvas>
+      </div>
+
+      <div class="glass-card" style="margin-top: 30px;">
+        <h3>Business Intelligence & Stock Reports</h3>
+        <div class="report-tabs">
+          <button class="report-tab active" data-report="low-stock">⚠️ Low Stock Alert</button>
+          <button class="report-tab" data-report="valuation">₹ Inventory Valuation</button>
+        </div>
+
+        <div class="glass-card" id="report-low-stock">
+          <h3>⚠️ Products Below Reorder Level</h3>
+          <div class="table-wrapper">
+            <table id="reportLowStockTable">
+              <thead>
+                <tr><th>Product</th><th>SKU</th><th>Category</th><th>Warehouse</th><th>Manager</th><th>Location</th><th>Qty (Current)</th><th>Reorder Level</th><th>Status</th><th>Actions</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div id="reportLowEmpty" class="empty-state hidden">
+              <div class="empty-icon">✅</div>
+              <p>All products are above reorder levels!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card hidden" id="report-valuation">
+          <h3>₹ Inventory Valuation Report</h3>
+          <div class="val-summary" id="valuationSummary"></div>
+          <div class="table-wrapper">
+            <table id="reportValTable">
+              <thead>
+                <tr><th>Product</th><th>SKU</th><th>Category</th><th>Unit Price</th><th>Total Units</th><th>Total Value</th><th>% of Total</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LOCATIONS ==================== -->
+    <section id="locations" class="page hidden">
+      <div class="page-header">
+        <h1>Location Hubs</h1>
+        <p class="page-sub">Regional warehouse management and team overview</p>
+      </div>
+
+      <div id="locationsGrid" class="locations-grid"></div>
+
+      <!-- Location Details Modal -->
+      <div id="locationModal" class="modal-overlay hidden">
+        <div class="modal-box large">
+          <div class="modal-head">
+            <h2 id="locationTitle">Location Details</h2>
+            <button class="btn-close" onclick="closeLocationModal()">✕</button>
+          </div>
+          <div class="modal-body-scroll">
+            <div class="loc-detail-grid">
+              <div class="loc-info-card">
+                <h4>🏬 Warehouse Info</h4>
+                <table class="detail-table">
+                  <tr><td>Name</td><td id="locationName"></td></tr>
+                  <tr><td>State</td><td id="locationState"></td></tr>
+                  <tr><td>Country</td><td id="locationCountry"></td></tr>
+                  <tr><td>Capacity</td><td id="locationCapacity"></td></tr>
+                  <tr><td>Manager</td><td id="locationManager"></td></tr>
+                  <tr><td>Team Size</td><td id="locationTeamSize"></td></tr>
+                </table>
+              </div>
+              <div class="loc-stats-grid">
+                <div class="stat-mini kpi-blue"><div class="stat-value" id="locationStockCount">0</div><div class="stat-label">Units</div></div>
+                <div class="stat-mini kpi-green"><div class="stat-value" id="locationValueStat">₹0</div><div class="stat-label">Value</div></div>
+                <div class="stat-mini kpi-orange"><div class="stat-value" id="locationLowStock">0</div><div class="stat-label">Low Stock</div></div>
+                <div class="stat-mini kpi-red"><div class="stat-value" id="locationOutOfStock">0</div><div class="stat-label">Out of Stock</div></div>
+              </div>
+            </div>
+            <h4>👥 Team Members</h4>
+            <div id="locationTeamList" class="team-grid"></div>
+            <h4>📦 Inventory at this Location</h4>
+            <div class="table-wrapper">
+              <table id="locationInvTable">
+                <thead><tr><th>Product</th><th>SKU</th><th>Category</th><th>Qty</th><th>Unit Price</th><th>Value</th><th>Status</th></tr></thead>
+                <tbody id="locationInventoryList"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combined Warehouse Management (Merged into Facilities) -->
+      <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 30px;">
+        <h2>Warehouse Management</h2>
+        <p class="page-sub mb-4">Manage storage locations and assignments</p>
+      </div>
+
+      <div class="glass-card mb-4">
+        <h3 id="whFormTitle">➕ Add Warehouse</h3>
+        <form id="warehouseForm">
+          <input type="hidden" id="warehouseId">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" id="w-name" required placeholder="e.g. Mumbai West Fulfillment Center">
+            </div>
+            <div class="form-group">
+              <label>Store/Branch</label>
+              <input type="text" id="w-store" placeholder="e.g. DC Zone 2">
+            </div>
+            <div class="form-group">
+              <label>Location / Address</label>
+              <input type="text" id="w-location" placeholder="e.g. Bhiwandi Logistics Park">
+            </div>
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" id="w-state" placeholder="e.g. Maharashtra">
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" id="w-country" placeholder="e.g. India">
+            </div>
+            <div class="form-group">
+              <label>Capacity (units)</label>
+              <input type="number" id="w-capacity" value="10000" min="0">
+            </div>
+            <div class="form-group admin-only">
+              <label>Assign Manager</label>
+              <select id="w-manager">
+                <option value="">— No Manager —</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="w-description" rows="2" placeholder="Warehouse details, specialization..."></textarea>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn btn-primary">💾 Save Warehouse</button>
+            <button type="button" id="w-resetBtn" class="btn btn-secondary">↺ Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="glass-card">
+        <div class="table-wrapper">
+          <table id="warehousesTable">
+            <thead>
+              <tr><th>Name</th><th>Store</th><th>State</th><th>Country</th><th>Capacity</th><th>Manager</th><th>Stock</th><th>Items</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== USERS ==================== -->
+    <section id="users" class="page hidden">
+      <div class="page-header">
+        <h1>User Management</h1>
+        <p class="page-sub">Manage team members and access roles</p>
+      </div>
+
+      <div class="glass-card mb-4">
+        <h3 id="userFormTitle">➕ Add Team Member</h3>
+        <form id="userForm">
+          <input type="hidden" id="userId">
+          <div class="form-grid">
+            <div class="form-group" style="display:flex; gap:10px;">
+              <div style="flex:1;">
+                <label>Full Name *</label>
+                <input type="text" id="u-fullname" placeholder="e.g. Rahul Sharma" required>
+              </div>
+              <div style="flex:1;">
+                <label>Designation</label>
+                <input type="text" id="u-designation" placeholder="e.g. Senior Manager">
+              </div>
+            </div>
+            <div class="form-group" style="display:flex; gap:10px;">
+              <div style="flex:1;">
+                <label>Department</label>
+                <input type="text" id="u-department" placeholder="e.g. Logistics">
+              </div>
+              <div style="flex:1;">
+                <label>Username *</label>
+                <input type="text" id="u-username" placeholder="e.g. rahul_s" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" id="u-email" required placeholder="e.g. deepak@company.com">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" id="u-phone" placeholder="e.g. 9812345678">
+            </div>
+            <div class="form-group">
+              <label>Joining Date</label>
+              <input type="date" id="u-join-date">
+            </div>
+            <div class="form-group">
+              <label>Password *</label>
+              <input type="text" id="u-password" placeholder="Min 6 characters">
+            </div>
+            <div class="form-group" id="roleGroup">
+              <label>Role</label>
+              <select id="u-role">
+                <option value="user">👤 User (Staff)</option>
+                <option value="manager">🏷️ Manager</option>
+                <option value="admin">⚙️ Admin</option>
+              </select>
+            </div>
+            <div class="form-group" id="warehouseGroup">
+              <label>Assign Warehouse(s)</label>
+              <div id="u-warehouse-grid" class="checkbox-grid">
+                <!-- Checkboxes injected by JS -->
+              </div>
+              <select id="u-warehouse" class="hidden">
+                <option value="">— No Warehouse —</option>
+              </select>
+            </div>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="btn btn-primary">💾 Save User</button>
+            <button type="button" id="u-resetBtn" class="btn btn-secondary">↺ Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="glass-card">
+        <div class="table-wrapper">
+          <table id="usersTable">
+            <thead>
+              <tr><th>Name / Desig</th><th>Dept</th><th>Username</th><th>Password</th><th>Joined</th><th>Email</th><th>Phone</th><th>Manager</th><th>Warehouse</th><th>Role</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AUDIT LOG ==================== -->
+    <section id="audit" class="page hidden">
+      <div class="page-header">
+        <h1>Audit Log</h1>
+        <p class="page-sub">Full stock change history with user and timestamp</p>
+      </div>
+      <div class="glass-card">
+        <div class="table-controls">
+          <select id="auditChangeType" class="filter-select">
+            <option value="">All Types</option>
+            <option value="add">➕ Add</option>
+            <option value="remove">➖ Remove</option>
+            <option value="adjust">🔧 Adjust</option>
+            <option value="move">🔄 Transfer</option>
+            <option value="initial">🆕 Initial</option>
+          </select>
+          <input type="text" id="auditSearch" placeholder="🔍 Search item or warehouse..." class="search-input">
+        </div>
+        <div class="table-wrapper">
+          <table id="auditTable">
+            <thead>
+              <tr><th>Date & Time</th><th>Type</th><th>Product</th><th>Warehouse</th><th>Region</th><th>Old Qty</th><th>New Qty</th><th>Δ Change</th><th>Updated By</th><th>Notes</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="auditEmpty" class="empty-state hidden">
+            <div class="empty-icon">📜</div>
+            <p>No audit records found.</p>
+          </div>
+        </div>
+        <div class="pagination" id="auditPagination"></div>
+      </div>
+    </section>
+
+    <!-- ==================== REPORTS (MERGED INTO STATS) ==================== -->
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- User History Modal -->
+  <div id="userHistoryModal" class="modal-overlay hidden">
+    <div class="modal-content wide">
+      <div class="modal-header">
+        <h2 id="historyTitle">User Assignment History</h2>
+        <button class="close-btn" onclick="document.getElementById('userHistoryModal').classList.add('hidden')">×</button>
+      </div>
+      <div class="table-wrapper">
+        <table id="historyTable">
+          <thead>
+            <tr><th>Date</th><th>Manager</th><th>Warehouse(s)</th><th>Changed By</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

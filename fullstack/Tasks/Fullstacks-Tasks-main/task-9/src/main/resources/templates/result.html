@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Employee Result</title>
+</head>
+<body>
+
+<h2>Employee Details</h2>
+
+<div th:if="${emp!=null}">
+<p><b>ID:</b> <span th:text="${emp.id}"></span></p>
+<p><b>Name:</b> <span th:text="${emp.name}"></span></p>
+<p><b>Department:</b> <span th:text="${emp.department}"></span></p>
+</div>
+
+<div th:if="${error!=null}">
+<p style="color:red" th:text="${error}"></p>
+</div>
+
+<br>
+<a href="/">⬅ Back to Search</a>
+
+</body>
+</html>
