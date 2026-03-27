@@ -338,19 +338,19 @@ app.post('/api/register', checkAuth, requireRole('admin', 'manager'), async (req
     }
 
     const [result] = await pool.query(
-      'INSERT INTO users (username, password, email, fullname, role, manager_id, phone, warehouse_id, join_date, designation, department) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [username, finalPassword, email, fullname, userRole, assigned_manager_id, phone || null, primary_warehouse_id, join_date || null, designation || null, department || null]
+      'INSERT INTO users (username, password, email, fullname, role, manager_id, phone, warehouse_id, designation, department) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [username, finalPassword, email, fullname, userRole, assigned_manager_id, phone || null, primary_warehouse_id, designation || null, department || null]
     );
 
-    // Initial history log
+    // Initial history log (user_history table may not exist — handle gracefully)
     const wIds = Array.isArray(warehouse_id) ? warehouse_id : (warehouse_id ? [warehouse_id] : []);
     await pool.query(
-      'INSERT INTO user_history (user_id, warehouse_ids, manager_id, changed_by) VALUES (?, ?, ?, ?)',
+      'INSERT IGNORE INTO user_history (user_id, warehouse_ids, manager_id, changed_by) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE user_id=user_id',
       [result.insertId, JSON.stringify(wIds), assigned_manager_id, callerId]
-    );
+    ).catch(() => {}); // Silently ignore if user_history table doesn't exist
 
     if (userRole === 'manager' && wIds.length > 0) {
-      await pool.query('UPDATE warehouses SET manager_id = ? WHERE id IN (?)', [result.insertId, wIds]);
+      await pool.query('UPDATE warehouses SET manager_id = ? WHERE id IN (?)', [result.insertId, wIds]).catch(() => {});
     }
 
     res.json({ success: true, message: 'Account created successfully', id: result.insertId });
@@ -369,7 +369,7 @@ app.get('/api/users', checkAuth, requireRole('admin', 'manager'), async (req, re
       [rows] = await pool.query(`
          SELECT u.id, u.username, u.password, u.email, u.fullname, u.role, u.phone,
                 u.manager_id, m.fullname as manager_name,
-                u.warehouse_id, u.join_date, u.designation, u.department,
+                u.warehouse_id, u.designation, u.department,
                 (CASE 
                   WHEN u.role = 'manager' THEN 
                     (SELECT GROUP_CONCAT(w2.name SEPARATOR ', ') FROM warehouses w2 WHERE w2.manager_id = u.id)
@@ -389,7 +389,7 @@ app.get('/api/users', checkAuth, requireRole('admin', 'manager'), async (req, re
      } else {
        [rows] = await pool.query(`
          SELECT u.id, u.username, u.password, u.email, u.fullname, u.role, u.phone, u.manager_id,
-                u.join_date,
+                u.designation, u.department,
                 u.warehouse_id, w.name as warehouse_name,
                 u.is_active, u.last_login, u.created_at
          FROM users u
@@ -428,8 +428,8 @@ app.put('/api/users/:id', checkAuth, requireRole('admin', 'manager'), async (req
     if (caller === 'admin') {
       const [old] = await pool.query('SELECT manager_id, warehouse_id, role, (SELECT JSON_ARRAYAGG(id) FROM warehouses WHERE manager_id=?) as managed_ids FROM users WHERE id=?', [id, id]);
       
-      let q = 'UPDATE users SET fullname=?, username=?, email=?, role=?, phone=?, is_active=?, manager_id=?, warehouse_id=?, join_date=?, designation=?, department=?';
-      let params = [fullname, username, email, assigned_role, phone || null, is_active !== undefined ? is_active : 1, manager_id || null, primary_warehouse_id, join_date || null, designation || null, department || null];
+      let q = 'UPDATE users SET fullname=?, username=?, email=?, role=?, phone=?, is_active=?, manager_id=?, warehouse_id=?, designation=?, department=?';
+      let params = [fullname, username, email, assigned_role, phone || null, is_active !== undefined ? is_active : 1, manager_id || null, primary_warehouse_id, designation || null, department || null];
       
       if (req.body.password) {
         q += ', password=?';
@@ -448,17 +448,17 @@ app.put('/api/users/:id', checkAuth, requireRole('admin', 'manager'), async (req
           await pool.query('UPDATE warehouses SET manager_id = ? WHERE id IN (?)', [id, wIds]);
         }
         
-        // Log history
+        // Log history (user_history table may not exist — handle gracefully)
         await pool.query(
           'INSERT INTO user_history (user_id, warehouse_ids, manager_id, changed_by) VALUES (?, ?, ?, ?)',
           [id, JSON.stringify(wIds), manager_id || null, req.session.userId]
-        );
+        ).catch(() => {});
       } else {
         // Log history for staff
         await pool.query(
           'INSERT INTO user_history (user_id, warehouse_ids, manager_id, changed_by) VALUES (?, ?, ?, ?)',
           [id, JSON.stringify(primary_warehouse_id ? [primary_warehouse_id] : []), manager_id || null, req.session.userId]
-        );
+        ).catch(() => {});
       }
     } else {
       const [u] = await pool.query('SELECT role, manager_id FROM users WHERE id=?', [id]);
@@ -500,6 +500,24 @@ app.delete('/api/users/:id', checkAuth, requireRole('admin', 'manager'), async (
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Deletion failed' });
+  }
+});
+
+// Permanent hard delete — Admin only
+app.delete('/api/users/:id/permanent', checkAuth, requireRole('admin'), async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    if (id === req.session.userId) {
+      return res.status(400).json({ error: 'Cannot delete your own account' });
+    }
+    // Nullify references so FK constraints don't block deletion
+    await pool.query('UPDATE users SET manager_id = NULL WHERE manager_id = ?', [id]);
+    await pool.query('UPDATE warehouses SET manager_id = NULL WHERE manager_id = ?', [id]);
+    await pool.query('DELETE FROM users WHERE id = ?', [id]);
+    res.json({ success: true, message: 'User permanently deleted' });
+  } catch (err) {
+    console.error('Permanent delete error:', err);
+    res.status(500).json({ error: 'Permanent deletion failed: ' + (err.sqlMessage || err.message) });
   }
 });
 
@@ -851,10 +869,31 @@ app.get('/api/all-stock', checkAuth, async (req, res) => {
 
 app.post('/api/stock', checkAuth, async (req, res) => {
   try {
-    const { inventory_id, warehouse_id, quantity, notes } = req.body;
+    const { inventory_id, warehouse_id, quantity, actionType, notes } = req.body;
+    const role = req.session.role;
+    const userId = req.session.userId;
+    const sessionWarehouseId = req.session.warehouseId;
 
     if (!inventory_id || !warehouse_id) {
       return res.status(400).json({ error: 'Inventory item and warehouse are required' });
+    }
+
+    const qty = Number(quantity);
+    if (qty < 0 || isNaN(qty)) {
+      return res.status(400).json({ error: 'Quantity must be a valid positive number' });
+    }
+
+    // Authorization
+    if (role !== 'admin') {
+      if (role === 'user' && Number(warehouse_id) !== Number(sessionWarehouseId)) {
+        return res.status(403).json({ error: 'Not authorized for this warehouse' });
+      }
+      if (role === 'manager') {
+        const [wCheck] = await pool.query('SELECT manager_id FROM warehouses WHERE id=?', [warehouse_id]);
+        if (wCheck.length === 0 || Number(wCheck[0].manager_id) !== Number(userId)) {
+          return res.status(403).json({ error: 'Not authorized for this warehouse' });
+        }
+      }
     }
 
     // Get existing quantity for history
@@ -863,19 +902,33 @@ app.post('/api/stock', checkAuth, async (req, res) => {
       [inventory_id, warehouse_id]
     );
     const oldQty = existing.length > 0 ? existing[0].quantity : 0;
+    
+    let finalQty = oldQty;
+    const type = actionType || 'add';
+    
+    if (type === 'add') {
+      finalQty = oldQty + qty;
+    } else if (type === 'remove') {
+      if (qty > oldQty) return res.status(400).json({ error: 'Cannot remove more than current stock' });
+      finalQty = oldQty - qty;
+    } else if (type === 'set') {
+      finalQty = qty;
+    } else {
+      return res.status(400).json({ error: 'Invalid action type' });
+    }
 
     await pool.query(
       `INSERT INTO stock (inventory_id, warehouse_id, quantity)
        VALUES (?, ?, ?)
        ON DUPLICATE KEY UPDATE quantity = ?`,
-      [inventory_id, warehouse_id, quantity || 0, quantity || 0]
+      [inventory_id, warehouse_id, finalQty, finalQty]
     );
 
     // Log to history
     await pool.query(
       `INSERT INTO stock_history (inventory_id, warehouse_id, old_quantity, new_quantity, change_type, notes, changed_by)
-       VALUES (?, ?, ?, ?, 'adjust', ?, ?)`,
-      [inventory_id, warehouse_id, oldQty, quantity || 0, notes || 'Stock level set', req.session.userId]
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [inventory_id, warehouse_id, oldQty, finalQty, type === 'set' ? 'adjust' : type, notes || 'Stock updated', req.session.userId]
     );
 
     const [rows] = await pool.query(
@@ -883,11 +936,11 @@ app.post('/api/stock', checkAuth, async (req, res) => {
       [inventory_id, warehouse_id]
     );
     
-    emitStockEvent(warehouse_id, rows[0].item_name, `Stock set to ${quantity} for ${rows[0].item_name}`);
+    emitStockEvent(warehouse_id, rows[0].item_name, `Stock ${type} applied. New total: ${finalQty} for ${rows[0].item_name}`);
     res.json(rows[0]);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to set stock' });
+    res.status(500).json({ error: 'Failed to update stock' });
   }
 });
 
@@ -1372,15 +1425,23 @@ app.post('/api/stock-requests', checkAuth, async (req, res) => {
     }
 
     if (req.session.role === 'manager') {
-      const [wFromRows] = from_warehouse_id ? await pool.query('SELECT manager_id FROM warehouses WHERE id=?', [from_warehouse_id]) : [[]];
+      // Manager: To must be their managed warehouse; From can be any warehouse
       const [wToRows] = await pool.query('SELECT manager_id FROM warehouses WHERE id=?', [to_warehouse_id]);
-      
-      const ownsFrom = wFromRows.length > 0 && wFromRows[0].manager_id === req.session.userId;
-      const ownsTo = wToRows.length > 0 && wToRows[0].manager_id === req.session.userId;
-      
-      if (!ownsFrom && !ownsTo) {
-        return res.status(403).json({ error: 'You must manage either the source or destination warehouse to create a request' });
+      const ownsTo = wToRows.length > 0 && Number(wToRows[0].manager_id) === Number(req.session.userId);
+      if (!ownsTo) {
+        return res.status(403).json({ error: 'You can only request stock TO your own managed warehouse' });
       }
+      // From can be any warehouse — no restriction
+    } else if (req.session.role === 'user') {
+      // Staff: To must be their assigned warehouse; From can be any warehouse
+      const [uRows] = await pool.query('SELECT warehouse_id FROM users WHERE id=?', [req.session.userId]);
+      const userWh = uRows[0]?.warehouse_id;
+      if (!userWh) return res.status(403).json({ error: 'You are not assigned to any warehouse' });
+
+      if (Number(to_warehouse_id) !== Number(userWh)) {
+        return res.status(403).json({ error: 'You can only request stock to your assigned warehouse' });
+      }
+      // From can be any warehouse — no restriction
     }
     
     const [result] = await pool.query(
@@ -1492,6 +1553,96 @@ app.put('/api/stock-requests/:id/status', checkAuth, async (req, res) => {
   }
 });
 
+// ==================== USER MANAGEMENT ====================
+
+app.get('/api/users', checkAuth, async (req, res) => {
+  try {
+    const [users] = await pool.query(`
+      SELECT u.id, u.username, u.password, u.fullname, u.email, u.phone, u.role, u.department, u.designation, u.is_active, u.created_at as join_date, u.last_login,
+             m.fullname AS manager_name, w.name AS warehouse_name, u.warehouse_id
+      FROM users u
+      LEFT JOIN users m ON u.manager_id = m.id
+      LEFT JOIN warehouses w ON u.warehouse_id = w.id
+      ORDER BY u.role, u.fullname ASC
+    `);
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch users' });
+  }
+});
+
+// Create User (using the app.js expected /api/register name)
+app.post('/api/register', checkAuth, async (req, res) => {
+  if (req.session.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+  try {
+    const { username, password, email, fullname, phone, role, department, designation, join_date } = req.body;
+    let whIdRaw = req.body.warehouse_id;
+    const warehouse_id = Array.isArray(whIdRaw) ? (whIdRaw[0] || null) : whIdRaw;
+    
+    // Auto-link manager role to the first warehouse immediately
+    let finalWhId = warehouse_id || null;
+    
+    await pool.query(
+      `INSERT INTO users (username, password, email, fullname, phone, role, department, designation, warehouse_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [username, password || 'User@123', email, fullname, phone, role, department || '', designation || '', finalWhId]
+    );
+    res.json({ success: true });
+  } catch (err) {
+    if (err.code === 'ER_DUP_ENTRY') return res.status(400).json({ error: 'Username or Email already exists' });
+    res.status(500).json({ error: 'Failed to create user' });
+  }
+});
+
+app.put('/api/users/:id', checkAuth, async (req, res) => {
+  if (req.session.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+  try {
+    const { username, password, email, fullname, phone, role, department, designation } = req.body;
+    let whIdRaw = req.body.warehouse_id;
+    const warehouse_id = Array.isArray(whIdRaw) ? (whIdRaw[0] || null) : whIdRaw;
+    let finalWhId = warehouse_id || null;
+    
+    let sql = 'UPDATE users SET username=?, email=?, fullname=?, phone=?, role=?, department=?, designation=?, warehouse_id=? WHERE id=?';
+    let params = [username, email, fullname, phone, role, department || '', designation || '', finalWhId, req.params.id];
+    
+    if (password) {
+      sql = 'UPDATE users SET username=?, password=?, email=?, fullname=?, phone=?, role=?, department=?, designation=?, warehouse_id=? WHERE id=?';
+      params = [username, password, email, fullname, phone, role, department || '', designation || '', finalWhId, req.params.id];
+    }
+    
+    await pool.query(sql, params);
+    
+    // Also intelligently update the warehouse's manager_id if they are assigned one
+    if (role === 'manager' && finalWhId) {
+      await pool.query('UPDATE warehouses SET manager_id = ? WHERE id = ?', [req.params.id, finalWhId]);
+    }
+    
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update user' });
+  }
+});
+
+app.put('/api/users/:id/activate', checkAuth, async (req, res) => {
+  if (req.session.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+  try {
+    await pool.query('UPDATE users SET is_active=1 WHERE id=?', [req.params.id]);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to reactivate user' });
+  }
+});
+
+app.delete('/api/users/:id', checkAuth, async (req, res) => {
+  if (req.session.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+  try {
+    await pool.query('UPDATE users SET is_active=0 WHERE id=?', [req.params.id]);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to deactivate user' });
+  }
+});
+
 // ==================== AUTO-MIGRATION ON STARTUP ====================
 // Safely adds missing columns / tables if running against old schema
 async function runMigrations() {
@@ -1502,6 +1653,8 @@ async function runMigrations() {
     const alterMigrations = [
       // users table new columns
       `ALTER TABLE users ADD COLUMN phone VARCHAR(20) AFTER email`,
+      `ALTER TABLE users ADD COLUMN department VARCHAR(100) AFTER fullname`,
+      `ALTER TABLE users ADD COLUMN designation VARCHAR(100) AFTER department`,
       `ALTER TABLE users ADD COLUMN warehouse_id INT AFTER manager_id`,
       `ALTER TABLE users ADD COLUMN is_active TINYINT(1) NOT NULL DEFAULT 1`,
       `ALTER TABLE users ADD COLUMN last_login DATETIME`,

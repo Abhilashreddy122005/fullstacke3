@@ -118,6 +118,14 @@ function sectionLoader(sec) {
 }
 
 // ============================================================
+// INIT
+// ============================================================
+async function init() {
+  await checkAuth();
+}
+
+window.addEventListener('DOMContentLoaded', init);
+// ============================================================
 // AUTH
 // ============================================================
 
@@ -654,7 +662,55 @@ function filterStock() {
   renderStockTable(filtered);
   updateStockSummary(filtered);
 }
+// ==================== ADD NEW STOCK ====================
 
+async function openAddStockModal() {
+  const [invRes, whRes] = await Promise.all([fetch('/api/inventory'), fetch('/api/warehouses')]);
+  if (invRes.ok) {
+    const inv = await invRes.json();
+    document.getElementById('addStockProduct').innerHTML = '<option value="">Select Product...</option>' + 
+      inv.map(i => `<option value="${i.id}">${escapeHtml(i.name)} (${escapeHtml(i.sku)})</option>`).join('');
+  }
+  if (whRes.ok) {
+    let whs = await whRes.json();
+    // Restrict warehouse choices to own warehouse(s) only
+    if (window.currentRole === 'manager') {
+      const mRes = await fetch('/api/warehouses?managed=1');
+      if (mRes.ok) whs = await mRes.json();
+    } else if (window.currentRole === 'user') {
+      const userWhId = window.currentUser?.warehouse_id;
+      if (userWhId) whs = whs.filter(w => w.id === userWhId);
+    }
+    const whOpts = whs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('');
+    document.getElementById('addStockWarehouse').innerHTML = '<option value="">Select Warehouse...</option>' + whOpts;
+  }
+  document.getElementById('addStockModal').classList.remove('hidden');
+}
+
+function closeAddStockModal() {
+  document.getElementById('addStockModal').classList.add('hidden');
+  document.getElementById('addStockForm').reset();
+}
+
+document.getElementById('addStockForm')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const payload = {
+    inventory_id: document.getElementById('addStockProduct').value,
+    warehouse_id: document.getElementById('addStockWarehouse').value,
+    actionType: document.getElementById('addStockAction').value,
+    quantity: Number(document.getElementById('addStockQty').value),
+    notes: document.getElementById('addStockNotes').value
+  };
+  const res = await fetch('/api/stock', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+  if (res.ok) {
+    showToast('Stock updated successfully', 'success');
+    closeAddStockModal();
+    loadStockTable();
+  } else {
+    const d = await res.json();
+    showToast(d.error || 'Failed to update stock', 'error');
+  }
+});
 // ============================================================
 // STOCK REQUESTS
 // ============================================================
@@ -674,20 +730,33 @@ async function loadRequests() {
   }
   if (whRes.ok) {
     const whs = await whRes.json();
-    const allWhOts = '<option value="">None (Supplier/Main)</option>' + 
-      whs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('');
-    
-    let destWhs = whs;
-    if (window.currentRole === 'manager') {
-       // Filter destination to only warehouses they manage
-       const mRes = await fetch('/api/warehouses?managed=1');
-       if (mRes.ok) destWhs = await mRes.json();
-    }
-    
-    const destWhOpts = destWhs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('');
+    let myWhs = whs; // admin sees all
 
-    document.getElementById('reqFrom').innerHTML = allWhOts;
-    document.getElementById('reqTo').innerHTML = '<option value="">Select Destination...</option>' + destWhOpts;
+    if (window.currentRole === 'manager') {
+      // Managers: To = only their managed warehouses; From = all warehouses
+      const mRes = await fetch('/api/warehouses?managed=1');
+      if (mRes.ok) myWhs = await mRes.json();
+    } else if (window.currentRole === 'user') {
+      // Staff: To = only their assigned warehouse
+      const userWhId = window.currentUser?.warehouse_id;
+      if (userWhId) myWhs = whs.filter(w => w.id === userWhId);
+    }
+
+    const myWhOpts = myWhs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('');
+
+    // FROM: all warehouses for everyone (you pick where stock comes from)
+    // Admin also gets a Supplier option
+    const fromOpts = window.currentRole === 'admin'
+      ? '<option value="">None (Supplier/Main)</option>' + whs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('')
+      : '<option value="">None (Supplier/External)</option>' + whs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('');
+
+    // TO: locked to own warehouse(s) only — no blank option so it pre-selects theirs
+    const toOpts = window.currentRole === 'admin'
+      ? '<option value="">Select Destination...</option>' + whs.map(w => `<option value="${w.id}">${escapeHtml(w.name)}</option>`).join('')
+      : myWhOpts;
+
+    document.getElementById('reqFrom').innerHTML = fromOpts;
+    document.getElementById('reqTo').innerHTML = toOpts;
   }
   
   renderRequests();
@@ -1206,9 +1275,23 @@ document.getElementById('warehousesTable')?.addEventListener('click', async e =>
 let users = [];
 
 async function loadUsers() {
-  const res = await fetch('/api/users');
-  if (!res.ok) { if (res.status === 401) window.location.href='/login.html'; return; }
-  users = await res.json();
+  try {
+    const res = await fetch('/api/users');
+    if (!res.ok) {
+      if (res.status === 401) { window.location.href='/login.html'; return; }
+      const d = await res.json().catch(() => ({}));
+      showToast(d.error || 'Failed to load users', 'error');
+      const tbody = document.querySelector('#usersTable tbody');
+      if (tbody) tbody.innerHTML = `<tr><td colspan="13" class="empty-cell">Failed to load users: ${escapeHtml(d.error || 'Server error')}</td></tr>`;
+      return;
+    }
+    users = await res.json();
+  } catch (err) {
+    showToast('Network error loading users', 'error');
+    const tbody = document.querySelector('#usersTable tbody');
+    if (tbody) tbody.innerHTML = '<tr><td colspan="13" class="empty-cell">Network error – could not load users</td></tr>';
+    return;
+  }
 
   // Populate warehouse grid
   const whRes = await fetch('/api/warehouses');
@@ -1240,6 +1323,10 @@ async function loadUsers() {
   }
 
   const tbody = document.querySelector('#usersTable tbody');
+  if (!users || users.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="13" class="empty-cell">No users found</td></tr>';
+    return;
+  }
   tbody.innerHTML = users.map(u => `
     <tr>
       <td>
@@ -1263,13 +1350,14 @@ async function loadUsers() {
       <td>${formatDate(u.last_login)}</td>
       <td class="actions">
         <button data-id="${u.id}" class="btn btn-sm btn-edit u-edit" title="Edit">✏️</button>
-        <button data-id="${u.id}" class="btn btn-sm btn-info u-history" title="History">⏳</button>
+        <button data-id="${u.id}" class="btn btn-sm btn-info u-history" title="Activity History">⏳</button>
         ${u.is_active 
           ? `<button data-id="${u.id}" class="btn btn-sm btn-danger u-delete" title="Deactivate">🚫</button>` 
           : `<button data-id="${u.id}" class="btn btn-sm btn-success u-activate" title="Reactivate">✅</button>`}
+        ${window.currentRole === 'admin' ? `<button data-id="${u.id}" data-name="${escapeHtml(u.fullname)}" class="btn btn-sm btn-danger u-perm-delete" title="Permanently Delete" style="background:#7f1d1d;border-color:#ef4444;">🗑️</button>` : ''}
       </td>
     </tr>
-  `).join('') || '<tr><td colspan="10" class="empty-cell">No users</td></tr>';
+  `).join('');
 }
 
 document.getElementById('userForm')?.addEventListener('submit', async e => {
@@ -1334,6 +1422,15 @@ document.getElementById('usersTable')?.addEventListener('click', async e => {
     const d = await res.json();
     if (!res.ok) { showToast(d.error, 'error'); return; }
     showToast('User deactivated', 'success'); loadUsers();
+  }
+  if (btn.classList.contains('u-perm-delete')) {
+    const name = btn.dataset.name || 'this user';
+    const ok = await showConfirm('⚠️ Permanently Delete User', `WARNING: This will PERMANENTLY delete "${name}" and all their data. This cannot be undone!`);
+    if (!ok) return;
+    const res = await fetch(`/api/users/${id}/permanent`, { method: 'DELETE' });
+    const d = await res.json();
+    if (!res.ok) { showToast(d.error, 'error'); return; }
+    showToast('User permanently deleted', 'success'); loadUsers();
   }
   if (btn.classList.contains('u-activate')) {
     const ok = await showConfirm('Reactivate User', 'This user will be reactivated and can login again.');
@@ -1593,4 +1690,3 @@ function initRealtimeAlerts() {
 
 startClock();
 showSection('dashboard');
-checkAuth();
