@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Notes App</title>
+</head>
+<body>
+
+  <h2>Hello Jennifer 🚀</h2>
+  <h1>My Notes</h1>
+
+  <input type="text" id="noteInput" placeholder="Write a note">
+  <button onclick="addNote()">Add</button>
+
+  <ul id="notesList"></ul>
+
+  <script>
+    function addNote() {
+      let input = document.getElementById("noteInput");
+      let li = document.createElement("li");
+      li.textContent = input.value;
+      document.getElementById("notesList").appendChild(li);
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>

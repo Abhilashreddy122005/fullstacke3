@@ -1,0 +1,6477 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Users/sanna/.mvn/wrapper/apache-maven-3.9.6/lib/jansi-2.4.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Users/sanna/.mvn/wrapper/apache-maven-3.9.6/lib/guava-32.0.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.eventbooking:event-booking-backend >---------------
+[INFO] Building event-booking-backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.3.5:run (default-cli) > test-compile @ event-booking-backend >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ event-booking-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ event-booking-backend ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 46 source files with javac [forked debug parameters release 21] to target\classes
+[WARNING] c:\Users\sanna\Downloads\E3\EventBookingProject\event-booking-backend\src\main\java\com\eventbooking\model\Event.java:[33,19] [dep-ann] deprecated item is not annotated with @Deprecated
+[WARNING] c:\Users\sanna\Downloads\E3\EventBookingProject\event-booking-backend\src\main\java\com\eventbooking\model\Booking.java:[60,20] [dep-ann] deprecated item is not annotated with @Deprecated
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ event-booking-backend ---
+[INFO] skip non existing resourceDirectory c:\Users\sanna\Downloads\E3\EventBookingProject\event-booking-backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ event-booking-backend ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [forked debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.3.5:run (default-cli) < test-compile @ event-booking-backend <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.3.5:run (default-cli) @ event-booking-backend ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-05-03T17:18:11.574+05:30  INFO 29408 --- [           main] c.eventbooking.EventBookingApplication   : Starting EventBookingApplication using Java 25.0.1 with PID 29408 (C:\Users\sanna\Downloads\E3\EventBookingProject\event-booking-backend\target\classes started by sanna in c:\Users\sanna\Downloads\E3\EventBookingProject\event-booking-backend)
+2026-05-03T17:18:11.576+05:30 DEBUG 29408 --- [           main] c.eventbooking.EventBookingApplication   : Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-03T17:18:11.577+05:30  INFO 29408 --- [           main] c.eventbooking.EventBookingApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-05-03T17:18:12.488+05:30  INFO 29408 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-03T17:18:12.576+05:30  INFO 29408 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 5 JPA repository interfaces.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/C:/Users/sanna/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.31/tomcat-embed-core-10.1.31.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-05-03T17:18:13.269+05:30  INFO 29408 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-05-03T17:18:13.285+05:30  INFO 29408 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-03T17:18:13.285+05:30  INFO 29408 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-03T17:18:13.364+05:30  INFO 29408 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-03T17:18:13.365+05:30  INFO 29408 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1713 ms
+2026-05-03T17:18:13.516+05:30  INFO 29408 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-03T17:18:13.567+05:30  INFO 29408 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-05-03T17:18:13.606+05:30  INFO 29408 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-03T17:18:13.920+05:30  INFO 29408 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-03T17:18:13.952+05:30  INFO 29408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-03T17:18:14.133+05:30  INFO 29408 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d28c214
+2026-05-03T17:18:14.136+05:30  INFO 29408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-03T17:18:14.193+05:30  WARN 29408 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-03T17:18:15.772+05:30  INFO 29408 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table attendees 
+       modify column custom_fields LONGTEXT
+Hibernate: 
+    alter table attendees 
+       modify column face_descriptor LONGTEXT
+Hibernate: 
+    alter table attendees 
+       modify column qr_code_data LONGTEXT
+Hibernate: 
+    alter table bookings 
+       modify column custom_field_responses LONGTEXT
+Hibernate: 
+    alter table bookings 
+       modify column qr_code_data LONGTEXT
+Hibernate: 
+    alter table event_expenses 
+       modify column receipt_base64 LONGTEXT
+Hibernate: 
+    alter table event_photos 
+       modify column photo_base64 LONGTEXT
+Hibernate: 
+    alter table events 
+       add column certificates_enabled bit not null
+Hibernate: 
+    alter table events 
+       modify column custom_registration_fields LONGTEXT
+Hibernate: 
+    alter table events 
+       modify column full_description LONGTEXT
+Hibernate: 
+    alter table events 
+       modify column image_url LONGTEXT
+Hibernate: 
+    alter table notifications 
+       modify column message TEXT not null
+Hibernate: 
+    alter table users 
+       modify column face_descriptor LONGTEXT
+2026-05-03T17:18:16.373+05:30  INFO 29408 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-03T17:18:16.786+05:30  INFO 29408 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-03T17:18:17.399+05:30 DEBUG 29408 --- [           main] com.eventbooking.config.JwtAuthFilter    : Filter 'jwtAuthFilter' configured for use
+2026-05-03T17:18:18.200+05:30  WARN 29408 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-05-03T17:18:18.283+05:30  WARN 29408 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-03T17:18:19.042+05:30  INFO 29408 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-05-03T17:18:19.044+05:30  INFO 29408 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-05-03T17:18:19.046+05:30  INFO 29408 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4691b83d]]
+2026-05-03T17:18:19.046+05:30  INFO 29408 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-05-03T17:18:19.059+05:30  INFO 29408 --- [           main] c.eventbooking.EventBookingApplication   : Started EventBookingApplication in 7.943 seconds (process running for 8.37)
+Hibernate: 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    : ✅ Admin account already exists
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    : ============================================================
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    :   ⚡ EventSphere — Started Successfully!
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    : ------------------------------------------------------------
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    :   🔑 ADMIN Login   → admin@veltech.edu.in / Admin@123
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    :   👨‍🎓 STUDENT      → Self-register, instant access
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    :   👩‍🏫 FACULTY      → Self-register, needs admin approval
+2026-05-03T17:18:19.178+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    :   🌐 Frontend      → http://localhost:5173
+2026-05-03T17:18:19.179+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    :   🔧 Backend API   → http://localhost:8080
+2026-05-03T17:18:19.179+05:30  INFO 29408 --- [           main] c.eventbooking.config.DataInitializer    : ============================================================
+2026-05-03T17:19:19.035+05:30  INFO 29408 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-05-03T17:21:53.904+05:30  INFO 29408 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-03T17:21:53.904+05:30  INFO 29408 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-03T17:21:53.904+05:30  INFO 29408 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        e1_0.created_by_id,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    where
+        e1_0.status in (?, ?, ?, ?)
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        ty1_0.event_id,
+        ty1_0.year_of_study 
+    from
+        event_target_years ty1_0 
+    where
+        ty1_0.event_id=?
+Hibernate: 
+    select
+        td1_0.event_id,
+        td1_0.department 
+    from
+        event_target_departments td1_0 
+    where
+        td1_0.event_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        od1_0.event_id,
+        od1_0.department 
+    from
+        event_organizing_depts od1_0 
+    where
+        od1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study 
+    from
+        event_coordinators c1_0 
+    join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    where
+        c1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id,
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        bookings b1_0 
+    join
+        events e1_0 
+            on e1_0.id=b1_0.event_id 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    join
+        users u1_0 
+            on u1_0.id=b1_0.user_id 
+    where
+        b1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        attendees 
+    set
+        attendance_status=?,
+        booking_id=?,
+        check_in_time=?,
+        check_out_time=?,
+        custom_fields=?,
+        email=?,
+        face_descriptor=?,
+        face_verified=?,
+        force_allowed=?,
+        is_team_leader=?,
+        name=?,
+        phone=?,
+        qr_code_data=?,
+        qr_token=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        events 
+    set
+        accommodation_available=?,
+        accommodation_price=?,
+        accommodation_provided=?,
+        available_tickets=?,
+        certificates_enabled=?,
+        created_by_id=?,
+        custom_event_type=?,
+        custom_registration_fields=?,
+        department=?,
+        description=?,
+        duration_in_days=?,
+        end_date=?,
+        end_date_time=?,
+        end_time=?,
+        event_name=?,
+        event_type=?,
+        full_description=?,
+        image_url=?,
+        is_team_event=?,
+        location_type=?,
+        max_participants=?,
+        max_team_size=?,
+        max_teams=?,
+        number_of_days=?,
+        price=?,
+        registration_end_date=?,
+        registration_start_date=?,
+        short_description=?,
+        start_date=?,
+        start_date_time=?,
+        status=?,
+        time=?,
+        total_tickets=?,
+        venue=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.booking_id,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+2026-05-03T17:29:11.861+05:30  INFO 29408 --- [nio-8081-exec-5] .s.a.AnnotationAsyncExecutionInterceptor : More than one TaskExecutor bean found within the context, and none is named 'taskExecutor'. Mark one of them as primary or name it 'taskExecutor' (possibly as an alias) in order to use it for async processing: [clientInboundChannelExecutor, clientOutboundChannelExecutor, brokerChannelExecutor]
+2026-05-03T17:29:16.641+05:30  INFO 29408 --- [cTaskExecutor-1] com.eventbooking.service.EmailService    : 🎓 Certificate sent to: sannareddyabhilashreddy@gmail.com
+2026-05-03T17:29:16.816+05:30  INFO 29408 --- [cTaskExecutor-2] com.eventbooking.service.EmailService    : 🎓 Certificate sent to: vtu26659@veltech.edu.in
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    update
+        events 
+    set
+        accommodation_available=?,
+        accommodation_price=?,
+        accommodation_provided=?,
+        available_tickets=?,
+        certificates_enabled=?,
+        created_by_id=?,
+        custom_event_type=?,
+        custom_registration_fields=?,
+        department=?,
+        description=?,
+        duration_in_days=?,
+        end_date=?,
+        end_date_time=?,
+        end_time=?,
+        event_name=?,
+        event_type=?,
+        full_description=?,
+        image_url=?,
+        is_team_event=?,
+        location_type=?,
+        max_participants=?,
+        max_team_size=?,
+        max_teams=?,
+        number_of_days=?,
+        price=?,
+        registration_end_date=?,
+        registration_start_date=?,
+        short_description=?,
+        start_date=?,
+        start_date_time=?,
+        status=?,
+        time=?,
+        total_tickets=?,
+        venue=? 
+    where
+        id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        e1_0.created_by_id,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        ty1_0.event_id,
+        ty1_0.year_of_study 
+    from
+        event_target_years ty1_0 
+    where
+        ty1_0.event_id=?
+Hibernate: 
+    select
+        td1_0.event_id,
+        td1_0.department 
+    from
+        event_target_departments td1_0 
+    where
+        td1_0.event_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        od1_0.event_id,
+        od1_0.department 
+    from
+        event_organizing_depts od1_0 
+    where
+        od1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study 
+    from
+        event_coordinators c1_0 
+    join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    where
+        c1_0.event_id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0
+Hibernate: 
+    select
+        coalesce(sum(b1_0.total_amount), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        coalesce(sum(b1_0.total_amount), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        coalesce(sum(b1_0.number_of_tickets), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        coalesce(sum(b1_0.number_of_tickets), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        e1_0.created_by_id,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        ty1_0.event_id,
+        ty1_0.year_of_study 
+    from
+        event_target_years ty1_0 
+    where
+        ty1_0.event_id=?
+Hibernate: 
+    select
+        td1_0.event_id,
+        td1_0.department 
+    from
+        event_target_departments td1_0 
+    where
+        td1_0.event_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        od1_0.event_id,
+        od1_0.department 
+    from
+        event_organizing_depts od1_0 
+    where
+        od1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study 
+    from
+        event_coordinators c1_0 
+    join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    where
+        c1_0.event_id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0
+Hibernate: 
+    select
+        coalesce(sum(b1_0.total_amount), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        coalesce(sum(b1_0.total_amount), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        coalesce(sum(b1_0.number_of_tickets), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        coalesce(sum(b1_0.number_of_tickets), 0) 
+    from
+        bookings b1_0 
+    where
+        b1_0.status='CONFIRMED'
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        e1_0.created_by_id,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0
+Hibernate: 
+    select
+        ty1_0.event_id,
+        ty1_0.year_of_study 
+    from
+        event_target_years ty1_0 
+    where
+        ty1_0.event_id=?
+Hibernate: 
+    select
+        td1_0.event_id,
+        td1_0.department 
+    from
+        event_target_departments td1_0 
+    where
+        td1_0.event_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        od1_0.event_id,
+        od1_0.department 
+    from
+        event_organizing_depts od1_0 
+    where
+        od1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study 
+    from
+        event_coordinators c1_0 
+    join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    where
+        c1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        b1_0.id,
+        b1_0.accommodation_required,
+        b1_0.booking_date,
+        b1_0.booking_reference,
+        b1_0.checked_in,
+        b1_0.custom_field_responses,
+        b1_0.event_id,
+        b1_0.is_team_booking,
+        b1_0.number_of_tickets,
+        b1_0.paid_amount,
+        b1_0.payment_status,
+        b1_0.qr_code_data,
+        b1_0.razorpay_order_id,
+        b1_0.razorpay_payment_id,
+        b1_0.status,
+        b1_0.team_name,
+        b1_0.total_amount,
+        b1_0.user_id 
+    from
+        bookings b1_0 
+    where
+        b1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.id,
+        e1_0.accommodation_available,
+        e1_0.accommodation_price,
+        e1_0.accommodation_provided,
+        e1_0.available_tickets,
+        e1_0.certificates_enabled,
+        c1_0.event_id,
+        c1_1.id,
+        c1_1.approved,
+        c1_1.college_location,
+        c1_1.college_name,
+        c1_1.college_state,
+        c1_1.department,
+        c1_1.email,
+        c1_1.face_descriptor,
+        c1_1.name,
+        c1_1.password,
+        c1_1.role,
+        c1_1.tts_number,
+        c1_1.vtu_number,
+        c1_1.year_of_study,
+        cb1_0.id,
+        cb1_0.approved,
+        cb1_0.college_location,
+        cb1_0.college_name,
+        cb1_0.college_state,
+        cb1_0.department,
+        cb1_0.email,
+        cb1_0.face_descriptor,
+        cb1_0.name,
+        cb1_0.password,
+        cb1_0.role,
+        cb1_0.tts_number,
+        cb1_0.vtu_number,
+        cb1_0.year_of_study,
+        e1_0.custom_event_type,
+        e1_0.custom_registration_fields,
+        e1_0.department,
+        e1_0.description,
+        e1_0.duration_in_days,
+        e1_0.end_date,
+        e1_0.end_date_time,
+        e1_0.end_time,
+        e1_0.event_name,
+        e1_0.event_type,
+        e1_0.full_description,
+        e1_0.image_url,
+        e1_0.is_team_event,
+        e1_0.location_type,
+        e1_0.max_participants,
+        e1_0.max_team_size,
+        e1_0.max_teams,
+        e1_0.number_of_days,
+        od1_0.event_id,
+        od1_0.department,
+        e1_0.price,
+        e1_0.registration_end_date,
+        e1_0.registration_start_date,
+        e1_0.short_description,
+        e1_0.start_date,
+        e1_0.start_date_time,
+        e1_0.status,
+        td1_0.event_id,
+        td1_0.department,
+        ty1_0.event_id,
+        ty1_0.year_of_study,
+        e1_0.time,
+        e1_0.total_tickets,
+        e1_0.venue 
+    from
+        events e1_0 
+    left join
+        event_coordinators c1_0 
+            on e1_0.id=c1_0.event_id 
+    left join
+        users c1_1 
+            on c1_1.id=c1_0.user_id 
+    left join
+        users cb1_0 
+            on cb1_0.id=e1_0.created_by_id 
+    left join
+        event_organizing_depts od1_0 
+            on e1_0.id=od1_0.event_id 
+    left join
+        event_target_departments td1_0 
+            on e1_0.id=td1_0.event_id 
+    left join
+        event_target_years ty1_0 
+            on e1_0.id=ty1_0.event_id 
+    where
+        e1_0.id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.approved,
+        u1_0.college_location,
+        u1_0.college_name,
+        u1_0.college_state,
+        u1_0.department,
+        u1_0.email,
+        u1_0.face_descriptor,
+        u1_0.name,
+        u1_0.password,
+        u1_0.role,
+        u1_0.tts_number,
+        u1_0.vtu_number,
+        u1_0.year_of_study 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        rp1_0.event_id,
+        rp1_0.photo_base64 
+    from
+        event_photos rp1_0 
+    where
+        rp1_0.event_id=?
+Hibernate: 
+    select
+        e1_0.event_id,
+        e1_0.amount,
+        e1_0.category,
+        e1_0.date,
+        e1_0.description,
+        e1_0.receipt_base64 
+    from
+        event_expenses e1_0 
+    where
+        e1_0.event_id=?
+Hibernate: 
+    select
+        a1_0.booking_id,
+        a1_0.id,
+        a1_0.attendance_status,
+        a1_0.check_in_time,
+        a1_0.check_out_time,
+        a1_0.created_at,
+        a1_0.custom_fields,
+        a1_0.email,
+        a1_0.face_descriptor,
+        a1_0.face_verified,
+        a1_0.force_allowed,
+        a1_0.is_team_leader,
+        a1_0.name,
+        a1_0.phone,
+        a1_0.qr_code_data,
+        a1_0.qr_token 
+    from
+        attendees a1_0 
+    where
+        a1_0.booking_id=?
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21:44 min
+[INFO] Finished at: 2026-05-03T17:39:39+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.5:run (default-cli) on project event-booking-backend: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

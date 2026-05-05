@@ -1,0 +1,34 @@
+{
+  "name": "event-booking-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^7.0.0",
+    "@tensorflow-models/blazeface": "^0.1.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "axios": "^1.6.5",
+    "face-api.js": "^0.22.2",
+    "html2canvas": "^1.4.1",
+    "html5-qrcode": "^2.3.8",
+    "jspdf": "^2.5.1",
+    "lucide-react": "^0.321.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.22.0",
+    "recharts": "^2.12.0",
+    "sockjs-client": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.1.0"
+  }
+}
